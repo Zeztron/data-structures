@@ -73,6 +73,32 @@ int RecursiveSum(struct Node *p)
   }
 }
 
+int Max(struct Node *p) 
+{
+  int max = INT_MIN;
+  while (p != NULL) {
+    if (p->data > max) {
+      max = p->data;
+    }
+
+    p = p->next;
+  }
+
+  return max;
+}
+
+int RecursiveMax(struct Node *p) 
+{
+  int max = 0;
+
+  if (p == 0) {
+    return INT_MIN;
+  }
+
+  max = RecursiveMax(p->next);
+  return max > p->data ? max : p->data;  
+}
+
 int main() 
 {
   int A[] = {3, 5, 7, 10, 15};
