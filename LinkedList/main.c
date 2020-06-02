@@ -140,6 +140,25 @@ struct Node* RecursiveSearch(struct Node *p, int key)
   return RecursiveSearch(p->next, key);
 }
 
+void Insert(int pos, int x)
+{
+  struct Node *t, *p;
+  t = (struct Node*)malloc(sizeof(struct Node));
+  t->data = x;
+
+  if (pos == 0) {
+    t->next = first;
+    first = t;
+  } else if (pos > 0) {
+    p = first;
+    for (int i = 0; i < pos - 1 && p; i++) {
+      p = p->next;
+    }
+    t->next = p->next;
+    p->next = t;
+  }
+}
+
 int main() 
 {
   int A[] = {3, 5, 7, 10, 15};
