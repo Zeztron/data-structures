@@ -222,6 +222,62 @@ int DeleteNode(struct Node *p, int index)
   }
 }
 
+int isSorted(struct Node *p)
+{
+  int x = INT_MIN;
+  while (p != NULL) {
+    if(p->data < x) {
+      return 0;
+    }
+    x = p->data;
+    p = p->next;
+  }
+
+  return 1;
+}
+
+struct Node* removeDuplicates(struct Node *p)
+{
+  p = first;
+  struct Node *q = first->next;
+
+  while (q != NULL) {
+    if (p->data != q->data) {
+      p = q;
+      q = q->next;
+    } else {
+      p->next = q->next;
+      free(q);
+      q = p->next;
+    }
+  }
+}
+
+struct Node* ReverseLinkedList(struct Node *p)
+{
+  p = first;
+  struct Node *q = NULL;
+  struct Node *r = NULL;
+
+  while (p != NULL) {
+    r = q;
+    q = p;
+    p = p->next;
+    q->next = r;
+  }
+
+  first = q;
+}
+
+struct Node* RecursiveReverse(struct Node *p, struct Node *q)
+{
+  if (p != NULL) {
+    RecursiveReverse(p, p->next);
+    p->next = q;
+  } else {
+    first = q;
+  }
+}
 
 int main() 
 {
