@@ -99,6 +99,47 @@ int RecursiveMax(struct Node *p)
   return max > p->data ? max : p->data;  
 }
 
+struct Node* Search(struct Node *p, int key)
+{
+  while(p != NULL) {
+    if (key == p->data) {
+      return p;
+    }
+
+    p = p->next;
+  }
+
+  return NULL;
+}
+
+struct Node* ImprovedSearch(struct Node* p, int key) // bring key to the front
+{
+  struct Node *q = NULL;
+  while (p != NULL) {
+    if (key == p->data) {
+      q->next = p->next;
+      p->next = first;
+      first = p;
+    }
+
+    q = p;
+    p = p->next;
+  }
+}
+
+struct Node* RecursiveSearch(struct Node *p, int key)
+{
+  if (p == NULL) {
+    return NULL;
+  } 
+
+  if (key == p->data) {
+    return p;
+  }
+
+  return RecursiveSearch(p->next, key);
+}
+
 int main() 
 {
   int A[] = {3, 5, 7, 10, 15};
