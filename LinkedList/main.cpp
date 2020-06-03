@@ -70,7 +70,7 @@ void LinkedList::Insert(int index, int x) {
     first = t;
   } else {
     for (int i = 0; i < index - 1; i++) {
-      p = p-next;
+      p = p->next;
     }
 
     t->next = p->next;
