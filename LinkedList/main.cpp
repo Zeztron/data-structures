@@ -48,11 +48,33 @@ LinkedList::~LinkedList() {
   }
 }
 
-LinkedList::Display() {
+void LinkedList::Display() {
   Node *p = first;
   while (p) {
     cout<<p->data<<" ";
     p = p->next;
+  }
+}
+
+void LinkedList::Insert(int index, int x) {
+  Node *t, *p = first;
+  if (index > 0 || index > Length()) {
+    return;
+  }
+
+  t = new Node;
+  t->data = x;
+  t->next = NULL;
+
+  if (index == 0) {
+    first = t;
+  } else {
+    for (int i = 0; i < index - 1; i++) {
+      p = p-next;
+    }
+
+    t->next = p->next;
+    p->next = t;
   }
 }
 
