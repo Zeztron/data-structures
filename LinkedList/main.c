@@ -279,6 +279,54 @@ struct Node* RecursiveReverse(struct Node *p, struct Node *q)
   }
 }
 
+struct Node* MergeLists(struct Node *first, struct Node *second)
+{
+  struct Node *last = NULL, *third = NULL;
+  if (first->data < second->data) {
+    third = last = first;
+    first = first->next;
+    last->next = NULL;
+  } else {
+    third = last = second;
+    second = second->next;
+    last->next = NULL;
+  }
+
+  while (first!= NULL && second != NULL) {
+    if (first->data < second->data) {
+      last->next = first;
+      last = first;
+      first = first->next;
+    } else {
+      last->next = second;
+      last = second;
+      second = second->next;
+    }
+
+    last->next = NULL;
+  }
+
+  if (first != NULL) {
+    last->next = first;
+  } else {
+    last->next = second;
+  }
+
+  return third;
+}
+
+struct Node* concatonateList(struct Node* first, struct Node* second) {
+  struct Node *p;
+  while(p->next != NULL) {
+    p = p->next;
+  }
+
+  p->next = second;
+  second = NULL;
+
+  return first;
+}
+
 int main() 
 {
   int A[] = {3, 5, 7, 10, 15};
