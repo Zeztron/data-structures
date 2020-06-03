@@ -327,6 +327,25 @@ struct Node* concatonateList(struct Node* first, struct Node* second) {
   return first;
 }
 
+bool isLoop(struct Node *head)
+{
+  struct Node *p, q;
+  p = q = head;
+
+  if (!head || !head->next) return false;
+  do {
+    p = p->next;
+    q = q->next;
+    q = q ? q->next : q;
+  } while (p && q && p!= q);
+
+  if (p == q) { 
+    return true;
+  } else {
+    return false;
+  }
+}
+
 int main() 
 {
   int A[] = {3, 5, 7, 10, 15};
