@@ -327,12 +327,12 @@ struct Node* concatonateList(struct Node* first, struct Node* second) {
   return first;
 }
 
-bool isLoop(struct Node *head)
+int isLoop(struct Node *head)
 {
   struct Node *p, q;
   p = q = head;
 
-  if (!head || !head->next) return false;
+  if (!head || !head->next) return -1;
   do {
     p = p->next;
     q = q->next;
@@ -340,9 +340,9 @@ bool isLoop(struct Node *head)
   } while (p && q && p!= q);
 
   if (p == q) { 
-    return true;
+    return 1;
   } else {
-    return false;
+    return -1;
   }
 }
 
