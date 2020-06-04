@@ -104,7 +104,7 @@ int Delete(struct Node *p, int index)
     x = Head->data
     if(Head == p) {
       free(Head);
-      Head = NULL
+      Head = NULL;
     } else {
       p->next = Head->next;
       free(Head);
