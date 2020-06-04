@@ -47,10 +47,26 @@ void RecursiveDisplay(struct Node *h)
   flag = 0;
 }
 
+int Length(struct Node *p)
+{
+  int length = 0;
+  do() {
+    length++;
+    p = p->next;
+  } while (p != NULL);
+
+  return length;
+}
+
 void Insert(struct Node *p, int index, int x)
 {
   struct Node *t;
   int i;
+
+  if (index < 0 || index > Length(p)) {
+    return;
+  }
+
   t = (struct Node *)malloc(sizeof(struct Node));
   t->data = x;
   if (index == 0) {
