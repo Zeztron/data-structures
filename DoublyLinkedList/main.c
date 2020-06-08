@@ -46,6 +46,32 @@ int Length(struct Node *p) {
   return length;
 }
 
+void InsertAtBeginning(int x) {
+  struct Node *t = (struct Node *)malloc(sizeof(struct Node));
+
+  t->data = x;
+  t->prev = NULL;
+  t->next = first;
+  first->prev = t;
+  first = t;
+}
+
+void InsertAtPosition(struct Node *p, int x, int pos) {
+  struct Node *t = (struct Node *)mallock(sizeof(struct Node));
+
+  t->data = x;
+  for (int i = 0; i < pos - 1; i++) {
+    p = p->next;
+  }
+
+  t->next = p->next; 
+  if (p->next) {
+    p->next->prev = t;
+  }
+
+  p->next = t;
+}
+
 int main()
 {
 
