@@ -108,7 +108,7 @@ void Reverse(struct Node *p) {
     p->next = p->prev;
     p->prev = p->next;
     p = p->prev;
-    if (p->next == NULL) first = p;
+    if (p && p->next == NULL) first = p;
   }
 }
 
