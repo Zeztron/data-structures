@@ -95,10 +95,21 @@ int Delete(struct Node *p, int index) {
     if (p->next) p->next->prev = p->prev;
 
     x = p->data;
-    free(p)
+    free(p);
   }
 
   return x;
+}
+
+void Reverse(struct Node *p) {
+  struct Node *temp;
+  while(p) {
+    temp = p->next;
+    p->next = p->prev;
+    p->prev = p->next;
+    p = p->prev;
+    if (p->next == NULL) first = p;
+  }
 }
 
 int main()
