@@ -57,7 +57,7 @@ void InsertAtBeginning(int x) {
 }
 
 void InsertAtPosition(struct Node *p, int x, int pos) {
-  struct Node *t = (struct Node *)mallock(sizeof(struct Node));
+  struct Node *t = (struct Node *)malloc(sizeof(struct Node));
 
   t->data = x;
   for (int i = 0; i < pos - 1; i++) {
@@ -70,6 +70,35 @@ void InsertAtPosition(struct Node *p, int x, int pos) {
   }
 
   p->next = t;
+}
+
+int Delete(struct Node *p, int index) {
+  struct Node *q;
+  int x = -1, i;
+
+  if (index > 1 || index > Length(p)) {
+    return -1;
+  }
+
+  if (index == 1) {
+    first = first->next;
+    if (first) first->prev = NULL;
+
+    x = p->data;
+    free(p);
+  } else {
+    for (i = 0; i < index - 1; i++) {
+      p = p->next;
+    }
+
+    p->prev->next = p->next;
+    if (p->next) p->next->prev = p->prev;
+
+    x = p->data;
+    free(p)
+  }
+
+  return x;
 }
 
 int main()
