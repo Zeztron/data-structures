@@ -70,6 +70,5 @@ int pop(struct Stack *stack) {
 
 int main() {
 
-
   return 0;
 }
