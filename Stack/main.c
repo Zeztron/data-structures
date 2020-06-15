@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Stack {
+struct Stack { 
   int size;
   int top;
   int *S;
