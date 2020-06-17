@@ -6,6 +6,7 @@ struct Array {
   int length;
 };
 
+
 // Displays the array
 void Display(struct Array arr) {
   int i;
