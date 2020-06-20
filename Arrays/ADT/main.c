@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 struct Array {
   int A[10];
   int size;
