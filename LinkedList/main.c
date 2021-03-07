@@ -329,7 +329,7 @@ struct Node* concatonateList(struct Node* first, struct Node* second) {
 
 int isLoop(struct Node *head)
 {
-  struct Node *p, q;
+  struct Node *p, *q;
   p = q = head;
 
   if (!head || !head->next) return -1;
