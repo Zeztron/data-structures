@@ -45,7 +45,7 @@ struct Node *recursiveInsert(struct Node *p, int key) {
 
   if (p == NULL) {
     t = (struct Node *)malloc(sizeof(struct Node));
-    t->data = NULL;
+    t->data = key;
     t->lChild = t->rChild = NULL;
     return t;
   }
@@ -144,7 +144,7 @@ struct Node *delete(struct Node *p, int key) {
     } else {
       q = inSucc(p->rChild); // Find the inorder successor
       p->data = q->data;
-      p->rChild = delete(p->rChild, q->data)
+      p->rChild = delete(p->rChild, q->data);
     }
 
   }
