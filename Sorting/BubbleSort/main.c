@@ -12,9 +12,9 @@ void bubbleSort(int A[], int n) {
 
   for (i = 0; i < n - 1; i++) {
     flag = 0;
-    for (j = 0; j < n - 1 - i; j--) {
-      if (A[j] > A[j+1]) {
-        swap(&A[j], &A[j+1]);
+    for (j = 0; j < n - 1 - i; j++) {
+      if (A[i] > A[j]) {
+        swap(&A[i], &A[j]);
         flag = 1;
       }
     }
