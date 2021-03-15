@@ -18,7 +18,7 @@ void selectionSort(int A[], int n) {
         k = j;
       }
     }
-    swap(A[i], A[k]);
+    swap(&A[i], &A[k]);
 
 
   }

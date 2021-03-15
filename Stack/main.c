@@ -10,7 +10,7 @@ struct Stack {
 void create(struct Stack *stack) {
   stack->size = 5;
   stack->top = -1;
-  stack->S=(int *)mallock(stack-->size*sizeof(int));
+  stack->S=(int *)mallock(stack->size*sizeof(int));
 }
 
 void Display(struct Stack stack) {
